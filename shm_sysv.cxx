@@ -50,7 +50,8 @@ int main(int argc, char **argv)
 		exit(errno);
 	}
 	
-	*(char*)membase = 42;
+	for (int i = 0; i < MB; ++i) 
+		*((char*)membase+i) = 42;
 	
 	int ret = shmdt(membase);
 	
